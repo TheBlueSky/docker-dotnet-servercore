@@ -1,0 +1,53 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- master
+
+resources:
+- repo: self
+
+variables:
+  imageName: 'essamalmohammadi/dotnet-servercore'
+
+stages:
+- stage: Build_and_Push
+  displayName: Build & Push images
+  jobs:
+  - job: Build_and_Push
+    displayName: Build & Push
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+    - task: Docker@2
+      displayName: Build and Push 2.1 image
+      inputs:
+        command: buildAndPush
+        dockerfile: '**/dockerfile-netcore21'
+        repository: $(imageName)
+        containerRegistry: Docker Hub
+        tags: |
+          2.1-aspnetcore-runtime-ltsc2019
+          lts
+          latest-lts
+    - task: Docker@2
+      displayName: Build and Push 2.2 image
+      inputs:
+        command: buildAndPush
+        dockerfile: '**/dockerfile-netcore22'
+        repository: $(imageName)
+        containerRegistry: Docker Hub
+        tags: |
+          2.2-aspnetcore-runtime-ltsc2019
+          latest
+    - task: Docker@2
+      displayName: Build and Push 3.0 image
+      inputs:
+        command: buildAndPush
+        dockerfile: '**/dockerfile-netcore30'
+        repository: $(imageName)
+        containerRegistry: Docker Hub
+        tags: |
+          3.0-aspnetcore-runtime-ltsc2019
+          preview
