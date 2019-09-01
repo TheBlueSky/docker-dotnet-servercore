@@ -1,0 +1,1 @@
+# Docker Images for ASP.NET Core runtime on Windows Server Core 2019 LTSC #
