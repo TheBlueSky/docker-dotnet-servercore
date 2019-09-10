@@ -4,9 +4,9 @@ FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-RUN Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/a9bb6d52-5f3f-4f95-90c2-084c499e4e33/eba3019b555bb9327079a0b1142cc5b2/dotnet-hosting-2.2.6-win.exe" -OutFile "C:\dotnet-hosting-win.exe"; `
-    Start-Process -FilePath "C:\dotnet-hosting-win.exe" -ArgumentList "/quiet", "/norestart" -Wait; `
-    Remove-Item -Force "C:\dotnet-hosting-win.exe";
+RUN Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/db9a9e04-60df-45c2-8108-cc532be2f0e4/92896677a17af8c0adcfaf45231832f2/aspnetcore-runtime-2.2.7-win-x64.exe" -OutFile "C:\aspnetcore-runtime.exe"; `
+    Start-Process -FilePath "C:\aspnetcore-runtime.exe" -ArgumentList "/quiet", "/norestart" -Wait; `
+    Remove-Item -Force "C:\aspnetcore-runtime.exe";
 
 # Configure web servers to bind to port 80 when present
 ENV ASPNETCORE_URLS=http://+:80 `
