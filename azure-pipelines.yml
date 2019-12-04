@@ -30,7 +30,6 @@ stages:
         tags: |
           2.1-aspnetcore-runtime-ltsc2019
           lts
-          latest-lts
     - task: Docker@2
       displayName: Build and Push 2.2 image
       inputs:
@@ -49,4 +48,14 @@ stages:
         containerRegistry: Docker Hub
         tags: |
           3.0-aspnetcore-runtime-ltsc2019
+    - task: Docker@2
+      displayName: Build and Push 3.1 image
+      inputs:
+        command: buildAndPush
+        dockerfile: '**/dockerfile-netcore31'
+        repository: $(imageName)
+        containerRegistry: Docker Hub
+        tags: |
+          3.1-aspnetcore-runtime-ltsc2019
           latest
+          latest-lts
