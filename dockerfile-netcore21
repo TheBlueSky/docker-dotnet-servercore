@@ -4,7 +4,7 @@ FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-RUN Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/7c6615ef-61cc-4ba0-8eb1-9df7a414c4f5/b8f812c62cf812b76f79d8d6dfa3cc74/aspnetcore-runtime-2.1.14-win-x64.exe" -OutFile "C:\aspnetcore-runtime.exe"; `
+RUN Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/a7a9163f-85d3-4c9b-a54b-26e8b43d054e/d5f4d4a2f3f1623c7caed71a21a96ddf/aspnetcore-runtime-2.1.15-win-x64.exe" -OutFile "C:\aspnetcore-runtime.exe"; `
     Start-Process -FilePath "C:\aspnetcore-runtime.exe" -ArgumentList "/quiet", "/norestart" -Wait; `
     Remove-Item -Force "C:\aspnetcore-runtime.exe";
 
