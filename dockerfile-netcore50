@@ -1,0 +1,14 @@
+# escape=`
+
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+RUN Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/f0fcc7bd-977d-4e47-ae93-6cef16bffa52/2bac08d7be3f536baef009d7e2f51c27/aspnetcore-runtime-5.0.0-preview.1.20124.5-win-x64.exe" -OutFile "C:\dotnet-hosting-win.exe"; `
+    Start-Process -FilePath "C:\dotnet-hosting-win.exe" -ArgumentList "/quiet", "/norestart" -Wait; `
+    Remove-Item -Force "C:\dotnet-hosting-win.exe";
+
+# Configure web servers to bind to port 80 when present
+ENV ASPNETCORE_URLS=http://+:80 `
+    # Enable detection of running in a container
+    DOTNET_RUNNING_IN_CONTAINER=true
