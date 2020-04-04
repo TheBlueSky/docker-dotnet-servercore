@@ -24,7 +24,7 @@ stages:
       displayName: Build and Push .NET Core 2.1 image
       inputs:
         command: buildAndPush
-        dockerfile: '**/dockerfile-netcore21'
+        dockerfile: '**/netcore21.dockerfile'
         repository: $(imageName)
         containerRegistry: Docker Hub
         tags: |
@@ -34,7 +34,7 @@ stages:
       displayName: Build and Push .NET Core 2.2 image
       inputs:
         command: buildAndPush
-        dockerfile: '**/dockerfile-netcore22'
+        dockerfile: '**/netcore22.dockerfile'
         repository: $(imageName)
         containerRegistry: Docker Hub
         tags: |
@@ -43,7 +43,7 @@ stages:
       displayName: Build and Push .NET Core 3.0 image
       inputs:
         command: buildAndPush
-        dockerfile: '**/dockerfile-netcore30'
+        dockerfile: '**/netcore30.dockerfile'
         repository: $(imageName)
         containerRegistry: Docker Hub
         tags: |
@@ -52,7 +52,7 @@ stages:
       displayName: Build and Push .NET Core 3.1 image
       inputs:
         command: buildAndPush
-        dockerfile: '**/dockerfile-netcore31'
+        dockerfile: '**/netcore31.dockerfile'
         repository: $(imageName)
         containerRegistry: Docker Hub
         tags: |
@@ -63,7 +63,7 @@ stages:
       displayName: Build and Push .NET 5 image
       inputs:
         command: buildAndPush
-        dockerfile: '**/dockerfile-netcore50'
+        dockerfile: '**/netcore50.dockerfile'
         repository: $(imageName)
         containerRegistry: Docker Hub
         tags: |
