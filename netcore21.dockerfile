@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/windows/servercore:ltsc2019 AS installer
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-RUN Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/ba9eb0d8-4623-444a-ae62-86b995dc4e70/dce089b5d4d487800bb7db99015d8162/aspnetcore-runtime-2.1.22-win-x64.zip" -OutFile "C:\aspnetcore-runtime.zip"; `
+RUN Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/c1907d59-03d9-4f47-a3e6-640720010103/fcb027da4bc9ba076fbe7c7cb1a2690b/aspnetcore-runtime-2.1.23-win-x64.zip" -OutFile "C:\aspnetcore-runtime.zip"; `
     Expand-Archive "C:\aspnetcore-runtime.zip" -DestinationPath "C:\dotnet"; `
     Remove-Item -Force "C:\aspnetcore-runtime.zip";
 
