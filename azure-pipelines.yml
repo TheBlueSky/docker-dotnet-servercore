@@ -10,6 +10,7 @@ resources:
 
 variables:
   imageName: 'essamalmohammadi/dotnet-servercore'
+  DECODE_PERCENTS: true # https://github.com/microsoft/azure-pipelines-agent/blob/master/docs/design/percentEncoding.md
 
 stages:
 - stage: Build_and_Push
