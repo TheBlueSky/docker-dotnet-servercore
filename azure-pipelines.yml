@@ -69,3 +69,13 @@ stages:
         tags: |
           5.0-aspnetcore-runtime-ltsc2019
           latest
+    - task: Docker@2
+      displayName: Build and Push .NET 6 image
+      inputs:
+        command: buildAndPush
+        dockerfile: '**/netcore60.dockerfile'
+        repository: $(imageName)
+        containerRegistry: Docker Hub
+        tags: |
+          6.0-aspnetcore-runtime-ltsc2019
+          preview
