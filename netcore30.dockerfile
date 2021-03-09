@@ -5,7 +5,9 @@ FROM mcr.microsoft.com/windows/servercore:ltsc2019 AS installer
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-RUN Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/c6dab355-4d7c-4998-94f2-4157397fa801/f98b118cb0f5428aacbafcbb97bcf980/aspnetcore-runtime-3.0.3-win-x64.zip" -OutFile "C:\aspnetcore-runtime.zip"; `
+ENV ASPNETCORE_VERSION=3.0.3
+
+RUN Invoke-WebRequest -Uri "https://dotnetcli.azureedge.net/dotnet/aspnetcore/Runtime/$Env:ASPNETCORE_VERSION/aspnetcore-runtime-$Env:ASPNETCORE_VERSION-win-x64.zip" -OutFile "C:\aspnetcore-runtime.zip"; `
     Expand-Archive "C:\aspnetcore-runtime.zip" -DestinationPath "C:\dotnet"; `
     Remove-Item -Force "C:\aspnetcore-runtime.zip";
 
@@ -16,7 +18,7 @@ COPY --from=installer ["C:\\dotnet", "C:\\Program Files\\dotnet"]
 
 # In order to set system PATH, ContainerAdministrator must be used
 USER ContainerAdministrator
-RUN setx PATH "%PATH%;C:\Program Files\dotnet" /m
+RUN setx /M PATH "%PATH%;C:\Program Files\dotnet"
 USER ContainerUser
 
 # Configure web servers to bind to port 80 when present
