@@ -19,7 +19,7 @@ stages:
   - job: Build_and_Push
     displayName: Build & Push
     pool:
-      vmImage: 'windows-latest'
+      vmImage: 'windows-2019'
     steps:
     - task: Docker@2
       displayName: Build and Push .NET Core 2.1 image
