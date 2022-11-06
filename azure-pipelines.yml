@@ -25,7 +25,7 @@ stages:
       displayName: Build and Push .NET Core 2.1 image
       inputs:
         command: buildAndPush
-        dockerfile: '**/netcore21.dockerfile'
+        Dockerfile: '**/netcore21.dockerfile'
         repository: $(imageName)
         containerRegistry: Docker Hub
         tags: |
@@ -34,7 +34,7 @@ stages:
       displayName: Build and Push .NET Core 2.2 image
       inputs:
         command: buildAndPush
-        dockerfile: '**/netcore22.dockerfile'
+        Dockerfile: '**/netcore22.dockerfile'
         repository: $(imageName)
         containerRegistry: Docker Hub
         tags: |
@@ -43,7 +43,7 @@ stages:
       displayName: Build and Push .NET Core 3.0 image
       inputs:
         command: buildAndPush
-        dockerfile: '**/netcore30.dockerfile'
+        Dockerfile: '**/netcore30.dockerfile'
         repository: $(imageName)
         containerRegistry: Docker Hub
         tags: |
@@ -52,7 +52,7 @@ stages:
       displayName: Build and Push .NET Core 3.1 image
       inputs:
         command: buildAndPush
-        dockerfile: '**/netcore31.dockerfile'
+        Dockerfile: '**/netcore31.dockerfile'
         repository: $(imageName)
         containerRegistry: Docker Hub
         tags: |
@@ -62,7 +62,7 @@ stages:
       displayName: Build and Push .NET 5 image
       inputs:
         command: buildAndPush
-        dockerfile: '**/netcore50.dockerfile'
+        Dockerfile: '**/netcore50.dockerfile'
         repository: $(imageName)
         containerRegistry: Docker Hub
         tags: |
@@ -71,7 +71,7 @@ stages:
       displayName: Build and Push .NET 6 image
       inputs:
         command: buildAndPush
-        dockerfile: '**/netcore60.dockerfile'
+        Dockerfile: '**/netcore60.dockerfile'
         repository: $(imageName)
         containerRegistry: Docker Hub
         tags: |
@@ -82,7 +82,7 @@ stages:
       displayName: Build and Push .NET 7 image
       inputs:
         command: buildAndPush
-        dockerfile: '**/netcore70.dockerfile'
+        Dockerfile: '**/netcore70.dockerfile'
         repository: $(imageName)
         containerRegistry: Docker Hub
         tags: |
