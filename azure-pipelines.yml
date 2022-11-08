@@ -76,7 +76,6 @@ stages:
         containerRegistry: Docker Hub
         tags: |
           6.0-aspnetcore-runtime-ltsc2019
-          latest
           latest-lts
     - task: Docker@2
       displayName: Build and Push .NET 7 image
@@ -87,4 +86,5 @@ stages:
         containerRegistry: Docker Hub
         tags: |
           7.0-aspnetcore-runtime-ltsc2019
-          preview
+          sts
+          latest
