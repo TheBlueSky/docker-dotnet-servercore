@@ -57,7 +57,6 @@ stages:
         containerRegistry: Docker Hub
         tags: |
           3.1-aspnetcore-runtime-ltsc2019
-          lts
     - task: Docker@2
       displayName: Build and Push .NET 5 image
       inputs:
@@ -76,6 +75,7 @@ stages:
         containerRegistry: Docker Hub
         tags: |
           6.0-aspnetcore-runtime-ltsc2019
+          lts
           latest-lts
     - task: Docker@2
       displayName: Build and Push .NET 7 image
