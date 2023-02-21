@@ -88,3 +88,13 @@ stages:
           7.0-aspnetcore-runtime-ltsc2019
           sts
           latest
+    - task: Docker@2
+      displayName: Build and Push .NET 8 image
+      inputs:
+        command: buildAndPush
+        Dockerfile: '**/netcore80.dockerfile'
+        repository: $(imageName)
+        containerRegistry: Docker Hub
+        tags: |
+          8.0-aspnetcore-runtime-ltsc2019
+          preview

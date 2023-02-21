@@ -13,6 +13,7 @@
 - `5.0-aspnetcore-runtime-ltsc2019`: The latest ASP.NET Core 5.0 runtime on Windows Server Core 2019 LTSC (Long-Term Servicing Channel).
 - `6.0-aspnetcore-runtime-ltsc2019`: The latest ASP.NET Core 6.0 runtime on Windows Server Core 2019 LTSC (Long-Term Servicing Channel).
 - `7.0-aspnetcore-runtime-ltsc2019`: The latest ASP.NET Core 7.0 runtime on Windows Server Core 2019 LTSC (Long-Term Servicing Channel).
+- `8.0-aspnetcore-runtime-ltsc2019`: The latest ASP.NET Core 8.0 runtime on Windows Server Core 2019 LTSC (Long-Term Servicing Channel).
 
 ## About the images
 
