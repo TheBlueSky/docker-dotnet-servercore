@@ -113,4 +113,5 @@ stages:
         repository: $(imageName)
         containerRegistry: Docker Hub
         tags: |
+          10.0-aspnetcore-runtime-ltsc2019
           preview
