@@ -93,7 +93,6 @@ stages:
         containerRegistry: Docker Hub
         tags: |
           8.0-aspnetcore-runtime-ltsc2019
-          latest-lts
           lts
     - task: Docker@2
       displayName: Build and Push .NET 9 image
@@ -104,8 +103,18 @@ stages:
         containerRegistry: Docker Hub
         tags: |
           9.0-aspnetcore-runtime-ltsc2019
-          latest
           sts
+    - task: Docker@2
+      displayName: Build and Push .NET 10 image
+      inputs:
+        command: buildAndPush
+        Dockerfile: '**/netcore100.dockerfile'
+        repository: $(imageName)
+        containerRegistry: Docker Hub
+        tags: |
+          10.0-aspnetcore-runtime-ltsc2019
+          latest
+          latest-lts
     - task: Docker@2
       displayName: Build and Push .NET Preview image
       inputs:
@@ -114,5 +123,4 @@ stages:
         repository: $(imageName)
         containerRegistry: Docker Hub
         tags: |
-          10.0-aspnetcore-runtime-ltsc2019
           preview
