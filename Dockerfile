@@ -1,7 +1,7 @@
 # escape=`
 
 # installer Image
-FROM mcr.microsoft.com/windows/servercore:ltsc2019 AS installer
+FROM mcr.microsoft.com/windows/servercore:ltsc2022 AS installer
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
@@ -14,7 +14,7 @@ RUN if (-not $Env:ASPNETCORE_VERSION) { throw 'ASPNETCORE_VERSION build arg is r
     Remove-Item -Force "C:\aspnetcore-runtime.zip";
 
 # final Image
-FROM mcr.microsoft.com/windows/servercore:ltsc2019 AS final
+FROM mcr.microsoft.com/windows/servercore:ltsc2022 AS final
 
 COPY --from=installer ["C:\\dotnet", "C:\\Program Files\\dotnet"]
 

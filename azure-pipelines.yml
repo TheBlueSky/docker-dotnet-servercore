@@ -23,49 +23,49 @@ stages:
         netcore21:
           imageDisplayName: '.NET Core 2.1'
           runtimeVersion: '2.1.30'
-          imageTags: '2.1-aspnetcore-runtime-ltsc2019'
+          imageTags: '2.1-aspnetcore-runtime-server-core-ltsc'
         netcore22:
           imageDisplayName: '.NET Core 2.2'
           runtimeVersion: '2.2.8'
-          imageTags: '2.2-aspnetcore-runtime-ltsc2019'
+          imageTags: '2.2-aspnetcore-runtime-server-core-ltsc'
         netcore30:
           imageDisplayName: '.NET Core 3.0'
           runtimeVersion: '3.0.3'
-          imageTags: '3.0-aspnetcore-runtime-ltsc2019'
+          imageTags: '3.0-aspnetcore-runtime-server-core-ltsc'
         netcore31:
           imageDisplayName: '.NET Core 3.1'
           runtimeVersion: '3.1.32'
-          imageTags: '3.1-aspnetcore-runtime-ltsc2019'
+          imageTags: '3.1-aspnetcore-runtime-server-core-ltsc'
         net50:
           imageDisplayName: '.NET 5'
           runtimeVersion: '5.0.17'
-          imageTags: '5.0-aspnetcore-runtime-ltsc2019'
+          imageTags: '5.0-aspnetcore-runtime-server-core-ltsc'
         net60:
           imageDisplayName: '.NET 6'
           runtimeVersion: '6.0.36'
-          imageTags: '6.0-aspnetcore-runtime-ltsc2019'
+          imageTags: '6.0-aspnetcore-runtime-server-core-ltsc'
         net70:
           imageDisplayName: '.NET 7'
           runtimeVersion: '7.0.19'
-          imageTags: '7.0-aspnetcore-runtime-ltsc2019'
+          imageTags: '7.0-aspnetcore-runtime-server-core-ltsc'
         net80:
           imageDisplayName: '.NET 8'
           runtimeVersion: '8.0.24'
-          imageTags: '8.0-aspnetcore-runtime-ltsc2019,lts'
+          imageTags: '8.0-aspnetcore-runtime-server-core-ltsc,lts'
         net90:
           imageDisplayName: '.NET 9'
           runtimeVersion: '9.0.13'
-          imageTags: '9.0-aspnetcore-runtime-ltsc2019,sts'
+          imageTags: '9.0-aspnetcore-runtime-server-core-ltsc,sts'
         net100:
           imageDisplayName: '.NET 10'
           runtimeVersion: '10.0.3'
-          imageTags: '10.0-aspnetcore-runtime-ltsc2019,latest,latest-lts'
+          imageTags: '10.0-aspnetcore-runtime-server-core-ltsc,latest,latest-lts'
         netpreview:
           imageDisplayName: '.NET Preview'
           runtimeVersion: '11.0.0-preview.1.26104.118'
-          imageTags: '11.0-aspnetcore-runtime-ltsc2019,preview'
+          imageTags: '11.0-aspnetcore-runtime-server-core-ltsc,preview'
     pool:
-      vmImage: 'windows-2019'
+      vmImage: 'windows-2022'
     steps:
     - task: Docker@2
       displayName: Build $(imageDisplayName) image
