@@ -2,9 +2,9 @@
 
 ## Available tags
 
-- `latest`: The latest ASP.NET Core runtime Current (the most recent stable) release on Windows Server Core 2022 LTSC (Long-Term Servicing Channel).
-- `latest-lts`: The latest ASP.NET Core runtime LTS (Log-Term Support) release on Windows Server Core 2022 LTSC (Long-Term Servicing Channel).
-- `lts`: The second latest ASP.NET Core runtime LTS (Log-Term Support) release on Windows Server Core 2022 LTSC (Long-Term Servicing Channel). If there is no second latest release, this will be the same as `latest-lts`.
+- `latest`: The latest ASP.NET Core runtime (the most recent stable) release on Windows Server Core 2022 LTSC (Long-Term Servicing Channel).
+- `latest-lts`: The latest ASP.NET Core runtime LTS (Long-Term Support) release on Windows Server Core 2022 LTSC (Long-Term Servicing Channel).
+- `lts`: The second-latest ASP.NET Core runtime LTS (Long-Term Support) release on Windows Server Core 2022 LTSC (Long-Term Servicing Channel). If there is no second latest release, this will be the same as `latest-lts`.
 - `sts`: The latest ASP.NET Core runtime STS (Standard Term Support) release on Windows Server Core 2022 LTSC (Long-Term Servicing Channel).
 - `preview`: The latest ASP.NET Core runtime Preview release on Windows Server Core 2022 LTSC (Long-Term Servicing Channel).
 - `2.1-aspnetcore-runtime-server-core-ltsc`: The latest ASP.NET Core 2.1 runtime on Windows Server Core 2022 LTSC (Long-Term Servicing Channel).
