@@ -9,7 +9,7 @@ ARG ASPNETCORE_VERSION
 ENV ASPNETCORE_VERSION=${ASPNETCORE_VERSION}
 
 RUN if (-not $Env:ASPNETCORE_VERSION) { throw 'ASPNETCORE_VERSION build arg is required.' }; `
-    Invoke-WebRequest -Uri "https://dotnetcli.azureedge.net/dotnet/aspnetcore/Runtime/$Env:ASPNETCORE_VERSION/aspnetcore-runtime-$Env:ASPNETCORE_VERSION-win-x64.zip" -OutFile "C:\aspnetcore-runtime.zip"; `
+    Invoke-WebRequest -Uri "https://builds.dotnet.microsoft.com/dotnet/aspnetcore/Runtime/$Env:ASPNETCORE_VERSION/aspnetcore-runtime-$Env:ASPNETCORE_VERSION-win-x64.zip" -OutFile "C:\aspnetcore-runtime.zip"; `
     Expand-Archive "C:\aspnetcore-runtime.zip" -DestinationPath "C:\dotnet"; `
     Remove-Item -Force "C:\aspnetcore-runtime.zip";
 
