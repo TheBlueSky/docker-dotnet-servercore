@@ -46,7 +46,7 @@ stages:
           imageTags: '6.0-aspnetcore-runtime-server-core-ltsc'
         net70:
           imageDisplayName: '.NET 7'
-          runtimeVersion: '7.0.19'
+          runtimeVersion: '7.0.20'
           imageTags: '7.0-aspnetcore-runtime-server-core-ltsc'
         net80:
           imageDisplayName: '.NET 8'
