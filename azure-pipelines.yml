@@ -17,111 +17,70 @@ stages:
   displayName: Build & Push images
   jobs:
   - job: Build_and_Push
-    displayName: Build & Push
+    displayName: Build & Push $(imageDisplayName)
+    strategy:
+      matrix:
+        netcore21:
+          imageDisplayName: '.NET Core 2.1'
+          runtimeVersion: '2.1.30'
+          imageTags: '2.1-aspnetcore-runtime-ltsc2019'
+        netcore22:
+          imageDisplayName: '.NET Core 2.2'
+          runtimeVersion: '2.2.8'
+          imageTags: '2.2-aspnetcore-runtime-ltsc2019'
+        netcore30:
+          imageDisplayName: '.NET Core 3.0'
+          runtimeVersion: '3.0.3'
+          imageTags: '3.0-aspnetcore-runtime-ltsc2019'
+        netcore31:
+          imageDisplayName: '.NET Core 3.1'
+          runtimeVersion: '3.1.32'
+          imageTags: '3.1-aspnetcore-runtime-ltsc2019'
+        net50:
+          imageDisplayName: '.NET 5'
+          runtimeVersion: '5.0.17'
+          imageTags: '5.0-aspnetcore-runtime-ltsc2019'
+        net60:
+          imageDisplayName: '.NET 6'
+          runtimeVersion: '6.0.36'
+          imageTags: '6.0-aspnetcore-runtime-ltsc2019'
+        net70:
+          imageDisplayName: '.NET 7'
+          runtimeVersion: '7.0.19'
+          imageTags: '7.0-aspnetcore-runtime-ltsc2019'
+        net80:
+          imageDisplayName: '.NET 8'
+          runtimeVersion: '8.0.24'
+          imageTags: '8.0-aspnetcore-runtime-ltsc2019,lts'
+        net90:
+          imageDisplayName: '.NET 9'
+          runtimeVersion: '9.0.13'
+          imageTags: '9.0-aspnetcore-runtime-ltsc2019,sts'
+        net100:
+          imageDisplayName: '.NET 10'
+          runtimeVersion: '10.0.3'
+          imageTags: '10.0-aspnetcore-runtime-ltsc2019,latest,latest-lts'
+        netpreview:
+          imageDisplayName: '.NET Preview'
+          runtimeVersion: '11.0.0-preview.1.26104.118'
+          imageTags: '11.0-aspnetcore-runtime-ltsc2019,preview'
     pool:
       vmImage: 'windows-2019'
     steps:
     - task: Docker@2
-      displayName: Build and Push .NET Core 2.1 image
+      displayName: Build $(imageDisplayName) image
       inputs:
-        command: buildAndPush
-        Dockerfile: '**/netcore21.dockerfile'
+        command: build
+        Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+        buildContext: '$(Build.SourcesDirectory)'
         repository: $(imageName)
         containerRegistry: Docker Hub
-        tags: |
-          2.1-aspnetcore-runtime-ltsc2019
+        tags: $(imageTags)
+        arguments: --build-arg ASPNETCORE_VERSION=$(runtimeVersion)
     - task: Docker@2
-      displayName: Build and Push .NET Core 2.2 image
+      displayName: Push $(imageDisplayName) image
       inputs:
-        command: buildAndPush
-        Dockerfile: '**/netcore22.dockerfile'
+        command: push
         repository: $(imageName)
         containerRegistry: Docker Hub
-        tags: |
-          2.2-aspnetcore-runtime-ltsc2019
-    - task: Docker@2
-      displayName: Build and Push .NET Core 3.0 image
-      inputs:
-        command: buildAndPush
-        Dockerfile: '**/netcore30.dockerfile'
-        repository: $(imageName)
-        containerRegistry: Docker Hub
-        tags: |
-          3.0-aspnetcore-runtime-ltsc2019
-    - task: Docker@2
-      displayName: Build and Push .NET Core 3.1 image
-      inputs:
-        command: buildAndPush
-        Dockerfile: '**/netcore31.dockerfile'
-        repository: $(imageName)
-        containerRegistry: Docker Hub
-        tags: |
-          3.1-aspnetcore-runtime-ltsc2019
-    - task: Docker@2
-      displayName: Build and Push .NET 5 image
-      inputs:
-        command: buildAndPush
-        Dockerfile: '**/netcore50.dockerfile'
-        repository: $(imageName)
-        containerRegistry: Docker Hub
-        tags: |
-          5.0-aspnetcore-runtime-ltsc2019
-    - task: Docker@2
-      displayName: Build and Push .NET 6 image
-      inputs:
-        command: buildAndPush
-        Dockerfile: '**/netcore60.dockerfile'
-        repository: $(imageName)
-        containerRegistry: Docker Hub
-        tags: |
-          6.0-aspnetcore-runtime-ltsc2019
-    - task: Docker@2
-      displayName: Build and Push .NET 7 image
-      inputs:
-        command: buildAndPush
-        Dockerfile: '**/netcore70.dockerfile'
-        repository: $(imageName)
-        containerRegistry: Docker Hub
-        tags: |
-          7.0-aspnetcore-runtime-ltsc2019
-    - task: Docker@2
-      displayName: Build and Push .NET 8 image
-      inputs:
-        command: buildAndPush
-        Dockerfile: '**/netcore80.dockerfile'
-        repository: $(imageName)
-        containerRegistry: Docker Hub
-        tags: |
-          8.0-aspnetcore-runtime-ltsc2019
-          lts
-    - task: Docker@2
-      displayName: Build and Push .NET 9 image
-      inputs:
-        command: buildAndPush
-        Dockerfile: '**/netcore90.dockerfile'
-        repository: $(imageName)
-        containerRegistry: Docker Hub
-        tags: |
-          9.0-aspnetcore-runtime-ltsc2019
-          sts
-    - task: Docker@2
-      displayName: Build and Push .NET 10 image
-      inputs:
-        command: buildAndPush
-        Dockerfile: '**/netcore100.dockerfile'
-        repository: $(imageName)
-        containerRegistry: Docker Hub
-        tags: |
-          10.0-aspnetcore-runtime-ltsc2019
-          latest
-          latest-lts
-    - task: Docker@2
-      displayName: Build and Push .NET Preview image
-      inputs:
-        command: buildAndPush
-        Dockerfile: '**/netpreview.dockerfile'
-        repository: $(imageName)
-        containerRegistry: Docker Hub
-        tags: |
-          11.0-aspnetcore-runtime-ltsc2019
-          preview
+        tags: $(imageTags)
