@@ -62,7 +62,7 @@ stages:
           imageTags: '10.0-aspnetcore-runtime-server-core-ltsc,latest,latest-lts'
         netpreview:
           imageDisplayName: '.NET Preview'
-          runtimeVersion: '11.0.0-preview.2.26159.112'
+          runtimeVersion: '11.0.0-preview.3.26207.106'
           imageTags: '11.0-aspnetcore-runtime-server-core-ltsc,preview'
     pool:
       vmImage: 'windows-2022'
