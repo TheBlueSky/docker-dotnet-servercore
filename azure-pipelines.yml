@@ -50,15 +50,15 @@ stages:
           imageTags: '7.0-aspnetcore-runtime-server-core-ltsc'
         net80:
           imageDisplayName: '.NET 8'
-          runtimeVersion: '8.0.25'
+          runtimeVersion: '8.0.26'
           imageTags: '8.0-aspnetcore-runtime-server-core-ltsc,lts'
         net90:
           imageDisplayName: '.NET 9'
-          runtimeVersion: '9.0.14'
+          runtimeVersion: '9.0.15'
           imageTags: '9.0-aspnetcore-runtime-server-core-ltsc,sts'
         net100:
           imageDisplayName: '.NET 10'
-          runtimeVersion: '10.0.5'
+          runtimeVersion: '10.0.6'
           imageTags: '10.0-aspnetcore-runtime-server-core-ltsc,latest,latest-lts'
         netpreview:
           imageDisplayName: '.NET Preview'
