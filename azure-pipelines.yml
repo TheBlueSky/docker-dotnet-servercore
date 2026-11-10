@@ -50,20 +50,24 @@ stages:
           imageTags: '7.0-aspnetcore-runtime-server-core-ltsc'
         net80:
           imageDisplayName: '.NET 8'
-          runtimeVersion: '8.0.32'
-          imageTags: '8.0-aspnetcore-runtime-server-core-ltsc,lts'
+          runtimeVersion: '8.0.34'
+          imageTags: '8.0-aspnetcore-runtime-server-core-ltsc'
         net90:
           imageDisplayName: '.NET 9'
-          runtimeVersion: '9.0.21'
-          imageTags: '9.0-aspnetcore-runtime-server-core-ltsc,sts'
+          runtimeVersion: '9.0.23'
+          imageTags: '9.0-aspnetcore-runtime-server-core-ltsc'
         net100:
           imageDisplayName: '.NET 10'
-          runtimeVersion: '10.0.13'
-          imageTags: '10.0-aspnetcore-runtime-server-core-ltsc,latest,latest-lts'
+          runtimeVersion: '10.0.15'
+          imageTags: '10.0-aspnetcore-runtime-server-core-ltsc,lts,latest-lts'
+        net110:
+          imageDisplayName: '.NET 11'
+          runtimeVersion: '11.0.0'
+          imageTags: '11.0-aspnetcore-runtime-server-core-ltsc,sts,latest'
         netpreview:
           imageDisplayName: '.NET Preview'
           runtimeVersion: '11.0.0-rc.2.26504.105'
-          imageTags: '11.0-aspnetcore-runtime-server-core-ltsc,preview'
+          imageTags: 'preview'
     pool:
       vmImage: 'windows-2022'
     steps:
